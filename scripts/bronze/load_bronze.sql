@@ -22,7 +22,7 @@ BEGIN
 		TRUNCATE TABLE bronze.crm_cust_info;
 		PRINT 'Inserting data into table bronze.crm_cust_info';
 		BULK INSERT bronze.crm_cust_info
-		FROM 'Path for bronze.crm_cust_info data'
+		FROM 'G:\Kartek\SQL_Datawarehouse_Project\sql-data-warehouse-project-main\datasets\source_crm\cust_info.csv'
 		WITH (
 			FIRSTROW=2,
 			FIELDTERMINATOR=',',
@@ -30,7 +30,8 @@ BEGIN
 		);
 		SET @end_time=GETDATE();
 		PRINT 'Successfully loaded data into bronze.crm_cust_info table';
-		PRINT 'Time taken to load' + CAST(DATEDIFF(SECOND, @start_time, @end_time) AS NVARCHAR) + ' seconds';
+		PRINT 'Time taken to load: ' + CAST(DATEDIFF(SECOND, @start_time, @end_time) AS NVARCHAR) + ' seconds';
+		PRINT '---------------------------------------------'
 
 		-- Inserting data for table bronze.crm_prd_info
 		PRINT 'STARTING TABLE bronze.crm_prd_info';
@@ -39,7 +40,7 @@ BEGIN
 		TRUNCATE TABLE bronze.crm_prd_info;
 		PRINT 'Inserting data into table bronze.crm_prd_info';
 		BULK INSERT bronze.crm_prd_info
-		FROM 'Path for bronze.crm_prd_info data'
+		FROM 'G:\Kartek\SQL_Datawarehouse_Project\sql-data-warehouse-project-main\datasets\source_crm\prd_info.csv'
 		WITH (
 			FIRSTROW=2,
 			FIELDTERMINATOR=',',
@@ -48,6 +49,7 @@ BEGIN
 		SET @end_time=GETDATE();
 		PRINT 'Successfully loaded data into bronze.crm_prd_info';
 		PRINT 'Time taken to load: ' + CAST(DATEDIFF(SECOND, @start_time, @end_time) AS NVARCHAR) + ' seconds';
+		PRINT '---------------------------------------------'
 
 		-- Inserting data for table bronze.crm_sales_details
 		PRINT 'STARTING TABLE bronze.crm_sales_details';
@@ -56,7 +58,7 @@ BEGIN
 		TRUNCATE TABLE bronze.crm_sales_details;
 		PRINT 'Inserting data into table bronze.crm_sales_details';
 		BULK INSERT bronze.crm_sales_details
-		FROM 'Path for bronze.crm_sales_details data'
+		FROM 'G:\Kartek\SQL_Datawarehouse_Project\sql-data-warehouse-project-main\datasets\source_crm\sales_details.csv'
 		WITH (
 			FIRSTROW=2,
 			FIELDTERMINATOR=',',
@@ -65,7 +67,7 @@ BEGIN
 		SET @end_time=GETDATE();
 		PRINT 'Successfully loaded data into bronze.crm_sales_details';
 		PRINT 'Time taken to load: ' + CAST(DATEDIFF(SECOND, @start_time, @end_time) AS NVARCHAR) + ' seconds';
-
+		PRINT '---------------------------------------------'
 
 		PRINT '---------------------------------------------';
 		PRINT 'Loading ERP Tables';
@@ -78,7 +80,7 @@ BEGIN
 		TRUNCATE TABLE bronze.erp_cust_az12;
 		PRINT 'Inserting data into table bronze.erp_cust_az12';
 		BULK INSERT bronze.erp_cust_az12
-		FROM 'Path for bronze.erp_cust_az12 data'
+		FROM 'G:\Kartek\SQL_Datawarehouse_Project\sql-data-warehouse-project-main\datasets\source_erp\CUST_AZ12.csv'
 		WITH (
 			FIRSTROW=2,
 			FIELDTERMINATOR=',',
@@ -87,6 +89,7 @@ BEGIN
 		SET @end_time=GETDATE();
 		PRINT 'Successfully loaded data into bronze.erp_cust_az12';
 		PRINT 'Time taken to load: ' + CAST(DATEDIFF(SECOND, @start_time, @end_time) AS NVARCHAR) + ' seconds';
+		PRINT '---------------------------------------------'
 
 		-- Inserting data for table bronze.erp_loc_a101
 		PRINT 'STARTING TABLE bronze.erp_loc_a101';
@@ -95,7 +98,7 @@ BEGIN
 		TRUNCATE TABLE bronze.erp_loc_a101;
 		PRINT 'Inserting data into table bronze.erp_loc_a101';
 		BULK INSERT bronze.erp_loc_a101
-		FROM 'Path for bronze.erp_loc_a101 data'
+		FROM 'G:\Kartek\SQL_Datawarehouse_Project\sql-data-warehouse-project-main\datasets\source_erp\LOC_A101.csv'
 		WITH (
 			FIRSTROW=2,
 			FIELDTERMINATOR=',',
@@ -104,7 +107,7 @@ BEGIN
 		SET @end_time=GETDATE();
 		PRINT 'Successfully loaded data into bronze.erp_loc_a101';
 		PRINT 'Time taken to load: ' + CAST(DATEDIFF(SECOND, @start_time, @end_time) AS NVARCHAR) + ' seconds';
-
+		PRINT '---------------------------------------------'
 
 		-- Inserting data for table bronze.erp_px_cat_g1v2
 		PRINT 'STARTING TABLE bronze.erp_px_cat_g1v2';
@@ -113,7 +116,7 @@ BEGIN
 		TRUNCATE TABLE bronze.erp_px_cat_g1v2;
 		PRINT 'Inserting data into table bronze.erp_px_cat_g1v2';
 		BULK INSERT bronze.erp_px_cat_g1v2
-		FROM 'Path for bronze.erp_px_cat_g1v2 data'
+		FROM 'G:\Kartek\SQL_Datawarehouse_Project\sql-data-warehouse-project-main\datasets\source_erp\PX_CAT_G1V2.csv'
 		WITH (
 			FIRSTROW=2,
 			FIELDTERMINATOR=',',
@@ -122,6 +125,7 @@ BEGIN
 		SET @end_time=GETDATE();
 		PRINT 'Successfully loaded data into bronze.erp_px_cat_g1v2';
 		PRINT 'Time taken to load: ' + CAST(DATEDIFF(SECOND, @start_time, @end_time) AS NVARCHAR) + ' seconds';
+		PRINT '---------------------------------------------'
 	END TRY
 
 	BEGIN CATCH
