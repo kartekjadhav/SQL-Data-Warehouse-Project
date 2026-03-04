@@ -16,7 +16,7 @@ BEGIN
 		PRINT '>> Truncating silver.crm_cust_info table';
 		TRUNCATE TABLE silver.crm_cust_info;
 		PRINT '>> Inserting data into silver.crm_cust_info table';
-		INSERT INTO silver.crm_cust_info (cst_id,cst_key,cst_firstname,cst_lastname,cst_marital_status,cst_gndr,cst_create_date)
+		INSERT INTO silver.crm_cust_info (cst_id,cst_key,cst_firstname,cst_lastname,cst_gndr,cst_marital_status,cst_create_date)
 		SELECT
 			cst_id,
 			cst_key,
